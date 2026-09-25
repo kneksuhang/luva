@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-noto:
+      "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
+    --font-sora: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Default Theme: Sakura (桜) */
+    --theme-primary: #e87a90;
+    --theme-primary-hover: #d4667c;
+    --theme-primary-light: #fdf1f4;
+    --theme-bg: #faf6f7;
+    --theme-card: #ffffff;
+    --theme-border: #efe3e6;
+    --theme-border-subtle: #f6ecee;
+    --theme-text: #2c2528;
+    --theme-muted: #75686c;
+    --theme-accent: #b5495b;
+  }
+
+  /* Dento-iro Theme Variations */
+  [data-palette="nadeshiko"] {
+    --theme-primary: #ee7989;
+    --theme-primary-hover: #db6273;
+    --theme-primary-light: #fef2f4;
+    --theme-bg: #fcf7f8;
+    --theme-card: #ffffff;
+    --theme-border: #efe2e5;
+    --theme-border-subtle: #f7ebee;
+    --theme-text: #2d2326;
+    --theme-muted: #7b686e;
+    --theme-accent: #be4758;
+  }
+
+  [data-palette="toki"] {
+    --theme-primary: #f4a7b9;
+    --theme-primary-hover: #e391a4;
+    --theme-primary-light: #fff5f7;
+    --theme-bg: #faf4f5;
+    --theme-card: #ffffff;
+    --theme-border: #efe4e6;
+    --theme-border-subtle: #f8ebef;
+    --theme-text: #312528;
+    --theme-muted: #816e73;
+    --theme-accent: #cb6e84;
+  }
+
+  [data-palette="wakatake"] {
+    --theme-primary: #5ba983;
+    --theme-primary-hover: #4b9672;
+    --theme-primary-light: #f2f9f5;
+    --theme-bg: #f5f8f6;
+    --theme-card: #ffffff;
+    --theme-border: #dfeae3;
+    --theme-border-subtle: #ebf2ed;
+    --theme-text: #222b26;
+    --theme-muted: #64736b;
+    --theme-accent: #377e5c;
+  }
+
+  [data-palette="fuji"] {
+    --theme-primary: #8b81c3;
+    --theme-primary-hover: #776cae;
+    --theme-primary-light: #f5f4fb;
+    --theme-bg: #f7f6fa;
+    --theme-card: #ffffff;
+    --theme-border: #e4e1ef;
+    --theme-border-subtle: #edebf5;
+    --theme-text: #272533;
+    --theme-muted: #6c687e;
+    --theme-accent: #655a9c;
+  }
+
+  [data-palette="rikyucha"] {
+    --theme-primary: #897858;
+    --theme-primary-hover: #756545;
+    --theme-primary-light: #f7f5f0;
+    --theme-bg: #f9f8f5;
+    --theme-card: #ffffff;
+    --theme-border: #ebe6dc;
+    --theme-border-subtle: #f3efe7;
+    --theme-text: #2d2922;
+    --theme-muted: #787265;
+    --theme-accent: #64563c;
+  }
+
+  [data-palette="kohaku"] {
+    --theme-primary: #ca7853;
+    --theme-primary-hover: #b56541;
+    --theme-primary-light: #fdf5f1;
+    --theme-bg: #fbf7f4;
+    --theme-card: #ffffff;
+    --theme-border: #efe6e0;
+    --theme-border-subtle: #f6ede8;
+    --theme-text: #2e2521;
+    --theme-muted: #7c6d65;
+    --theme-accent: #9e5331;
+  }
+
+  [data-palette="shinbashi"] {
+    --theme-primary: #0089a7;
+    --theme-primary-hover: #00738c;
+    --theme-primary-light: #f0f8fa;
+    --theme-bg: #f4f9fb;
+    --theme-card: #ffffff;
+    --theme-border: #ddebf0;
+    --theme-border-subtle: #e8f3f7;
+    --theme-text: #19272c;
+    --theme-muted: #59717a;
+    --theme-accent: #005f73;
+  }
+
+  [data-palette="yamabuki"] {
+    --theme-primary: #e9a328;
+    --theme-primary-hover: #d4901b;
+    --theme-primary-light: #fef9ef;
+    --theme-bg: #fdfbf6;
+    --theme-card: #ffffff;
+    --theme-border: #f3ebd8;
+    --theme-border-subtle: #faf4e7;
+    --theme-text: #2d2619;
+    --theme-muted: #7d7058;
+    --theme-accent: #b07412;
+  }
+
+  [data-palette="akane"] {
+    --theme-primary: #b7282e;
+    --theme-primary-hover: #9e2025;
+    --theme-primary-light: #fdf2f3;
+    --theme-bg: #faf5f5;
+    --theme-card: #ffffff;
+    --theme-border: #efe0e1;
+    --theme-border-subtle: #f8ecee;
+    --theme-text: #2d1e1f;
+    --theme-muted: #7b6264;
+    --theme-accent: #86161b;
+  }
+
+  * {
+    border-color: var(--theme-border);
+  }
+
+  body {
+    font-family: var(--font-noto);
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    /* Subtle Japanese Washi Paper Texture (Non-intrusive micro grain) */
+    background-image:
+      radial-gradient(var(--theme-border) 0.65px, transparent 0.65px),
+      radial-gradient(var(--theme-border-subtle) 0.65px, var(--theme-bg) 0.65px);
+    background-size: 26px 26px;
+    background-position:
+      0 0,
+      13px 13px;
+    background-attachment: scroll;
+  }
+}
+
+/* Wabi-Sabi Card Micro-Interactions */
+.wabi-card {
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.wabi-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px -2px rgba(44, 37, 40, 0.05),
+    0 2px 4px -1px rgba(44, 37, 40, 0.03);
+}
+
+.wabi-card:active {
+  transform: translateY(0px) scale(0.995);
+}
+
+.font-sora {
+  font-family: "Sora", sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-noto {
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+/* Mobile Hamburger Drawer Solid Canvas Background */
+.luva-drawer-canvas {
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+  box-shadow: -10px 0 35px -5px rgba(44, 37, 40, 0.25) !important;
+}
+
+.luva-drawer-backdrop {
+  background-color: rgba(30, 25, 27, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Scrollbar Minimalist */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-primary);
+}
